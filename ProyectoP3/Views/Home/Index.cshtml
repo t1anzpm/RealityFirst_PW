@@ -1,0 +1,107 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+@model IList<ArtistasModels>
+
+        <div class="section-title">
+          <h2>Inicio</h2>
+          <p>En esta pagina podras navegar rapidamente a los conciertos más proximos.</p>
+          <h3>Eventos más proximos: </h3>
+        </div>
+          <div class="col-lg-4 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <div class="row">
+              <h3>Rage Against The Machine</h3>
+              <br>
+            <img src="logos_compra/RAM_logo.png" class="img-fluid" alt="Rage Against The Machine">
+            <p class="">·28 Octubre 2022·</p>
+            <form action="Ratm.html">
+              <button type="submit" class="btn btn-primary">Ir a la pagina...</button>
+          </form>
+          <br />
+          <br />
+          <br />
+          <br />
+          <h3>Beyoncé</h3>
+              <br>
+              <img src="logos_compra/beyoncé_logo.png" class="img-fluid" alt="Beyoncé">
+              <p class="">·14 Septiembre 2022·</p>
+            <form action="beyoncé.html">
+              <button type="submit" class="btn btn-primary">Ir a la pagina...</button>
+          </form>
+          <br />
+          <br />
+          <br />
+          <br />
+          <h3>Iron Maiden</h3>
+              <br>
+              <img src="logos_compra/Iron_Maiden_Logo.png" class="img-fluid" alt="Iron Maiden">
+              <p class="">·20 de Abril de 2022·</p>
+            <form action="ironmaiden.html">
+              <button type="submit" class="btn btn-primary">Ir a la pagina...</button>
+          </form>
+        </div> 
+      </div>
+
+  <footer id="footer">
+      <div class="copyright">
+        <div id="usuario"></div>
+        &copy; Copyright <strong><span>Reality First - 2022</span></strong>
+      </div>
+      <div class="credits">
+        Desarrollado por <a href="Team.html" style="color: #2DB6A3;">Femarick Team</a>
+      </div>
+  </footer>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<div id="myModal" class="modal fa de">
+	<div class="modal-dialog modal-login">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="avatar">
+					<img src="assets/img/linkedin_profile_image2.png" alt="Avatar">
+				</div>				
+				<h4 class="modal-title">Inicia Sesión</h4>	
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body" id="Cerrarmodal">
+				<form name="login">
+					<div class="form-group">
+						<input type="email" class="form-control" name="userid" placeholder="Correo" required="required">		
+					</div>
+					<div class="form-group">
+						<input type="password" class="form-control" name="pswrd" placeholder="Contraseña" required="required">	
+					</div>        
+					<div class="form-group">
+						<button type="submit" onclick="check(this.form)" class="btn btn-primary btn-lg btn-block login-btn">Entrar</button>
+					</div>  
+          <div class="form-group" align="right">
+            <a href="#" >Olvidaste tu contraseña</a>
+          </div>
+				</form>  
+        <div class="form-group">
+          <button data-dismiss="modal"  type="submit" class="btn btn-success btn-lg btn-block login-btn" style="background-color: #2DB6A3;" >Continuar como Visita</button>
+        </div>  
+			</div>
+      <div class="modal-footer">
+				¿No tienes una cuenta?<a href="Registro.html" style="color:#2DB6A3">Regístrate</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+          
+@foreach (ArtistasModels artista in Model)
+{   
+        <div class="row g-2 bg-light position-relative ">
+          <div class="col-md-6 mb-md-0 p-md-4">
+            <img src="@artista.FotoNoticia" class="w-100" alt="...">
+          </div>
+          <div class="col-md-6 p-4 ps-md-0">
+            <h5 class="mt-0">@artista.Titulo</h5>
+            <p>@artista.Contenido</p>
+            <p><em>Escritor: @artista.Escritor, Editor: @artista.Editor</em></p>
+            <a href="/Artista/Ficha_artista/@artista.IdArtista" class="stretched-link">Ver informacion del artista</a>
+          </div>
+        </div>
+        <br>
+    }
